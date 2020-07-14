@@ -1,0 +1,7 @@
+代码仓库：https://gitee.com/shirley3790/H52002.git
+
+指令一：克隆仓库
+git clone https://gitee.com/shirley3790/H52002.git
+
+指令二：拉取新数据
+git pull
