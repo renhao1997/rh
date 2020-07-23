@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+v
+<body>
+
+    <div id="app">
+        <h3>1、双花括号方式{{}}; 刷新会出现闪烁</h3>
+        <p>{{ msg1 }}</p>
+
+
+        <h2>2、指令 v-text;能解决闪烁问题，但是遇到节点不会编译</h2>
+        <p v-text="msg2"></p>
+
+        <h2>3、指令 v-html;能解决闪烁问题，能编译节点</h2>
+        <p v-html="msg3"></p>
+
+        <h2>4.还是用{{}},但是不想出现闪烁 v-cloak解决这个问题</h2>
+        <p v-cloak>{{ msg4 }}</p>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                msg1: '月入过万国外游',
+                msg2: '月入八千<span>国内游</span>',
+                msg3: '月入五千广州游',
+                msg4: '月入三千地沟油',
+                num: 1
+            }
+        })
+    </script>
+</body>
+
+</html>

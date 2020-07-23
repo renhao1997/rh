@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .left {
+            background: #ccc;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .right {
+            float: left;
+            width: 500px;
+            height: 500px;
+            background: green;
+            color: #ffffff;
+        }
+
+        .active {
+            background: #58bc58;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 5、设置菜单，可以用a标签实现，也可以用router-link实现 -->
+        <ul class="left">
+            <li>{{ item.title }}</a></li>
+            <!-- <li><a href="#/users">用户管理</a></li>
+            <li><a href="#/orders">订单管理</a></li> -->
+        </ul>
+        <div class="right">
+            <!-- 6、设置路由出口 -->
+            <!-- <p>商品管理</p> -->
+            <router-view></router-view>
+        </div>
+    </div>
+</body>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script src="../node_modules/vue-router/dist/vue-router.js"></script>
+
+</html>

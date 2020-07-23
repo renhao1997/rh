@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        数学：<input type="text" v-model="math">
+        语文:<input type="text" v-model="chinese"><br><br>
+        总分(methods单向)：<input type="text" v-model="tota1l()"><br><br>
+        总分(计算属性computed-getter单向)：<input type="text" v-model="total2"><br><br>
+        总分(计算属性computed-setter双向): <input type="text" v-model="total3"><br><br>
+        总分(监听器): <input type="text" v-model="total4"><br><br>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+
+            el: "#app",
+            data: {
+                math: '80',
+                chinese: '90',
+                total4: 0
+            },
+
+
+            methods: {
+                tota1l() {
+                    return this.math * 1 + this.chinese * 1;
+                }
+            },
+
+            computed: {
+
+                total2() {
+                    console.log('计算属性求总分：total1被调用了');
+                    return this.math * 1 + this.chinese * 1;
+                },
+
+                total3: {
+                    get() {
+                        return this.math * 1 + this.chinese * 1;
+                    },
+                    set(val) {//接收总分，平均分给数学和语文
+                        console.log(val);
+                        this.math = this.chinese = parseInt(val / 2);
+                    }
+                },
+            },
+            watch: {
+                math: function (newval, oldval) {
+                    console.log(newval);
+                    this.total4 = newval * 1 + this.chinese * 1;
+                },
+                chinese: function (newval) {
+                    console.log(newval);
+                    vm.total4 = newval * 1 + vm.math * 1;
+                }
+            }
+        })
+
+        // vm.$watch('chinese', (newval) => {
+        //     console.log(newval, 999);//this.chinese的新增
+        //     vm.total4 = newval * 1 + vm.math * 1;
+        // })
+
+    </script>
+</body>
+
+</html>

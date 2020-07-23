@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in list" :key="item.id">{{ item.id }}、{{ item.name }}
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script src="../node_modules/axios/dist/axios.js"></script>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        //挂载点
+        el: "#app",
+        //存放数据
+        data: {
+            list: []
+        },
+        //存放方法
+        methods: {
+            //功能：发送ajax获取json数据
+            async getdata() {
+                try {
+                    let p = await axios.get('./db/data.json');
+                    console.log(p);
+                    this.list = p.data;//要的数据在data里面
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+        },
+        //发送ajax
+        created() {
+            //进入页面就调用获取数据
+            this.getdata();
+        }
+    })
+
+</script>
+
+</html>

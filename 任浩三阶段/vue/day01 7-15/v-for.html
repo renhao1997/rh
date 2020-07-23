@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>1、v-for 遍历数组 [{},{},{}]</h2>
+        <ul>
+            <li v-for="(item,index,val) in arr" v-cloak>{{index}}:{{ item.content }}</li>
+            <li v-for="(item,index) in arr" v-html="item.title"></li>
+        </ul>
+
+        <h2>2、v-for 遍历对象</h2>
+        <ul>
+            <!-- <li v-for="(val, key) in inf">1.title-锤子手机</li> -->
+            <li v-for="(val, key,index) in inf" v-cloak>{{ index+1 }}.{{ key }}-{{ val }}</li>
+        </ul>
+    </div>
+
+</body>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        //挂载点
+        el: "#app",
+        //存放数据
+        data: {
+            arr: [
+                {
+                    title: '马云',
+                    content: '我对钱没有兴趣'
+                }, {
+                    title: '刘强东',
+                    content: '不知妻美，计时东'
+                }, {
+                    title: '马化腾',
+                    content: '南山必胜客'
+                },
+                {
+                    title: '李彦宏',
+                    content: '宏颜获水'
+                }
+            ],
+            inf: {
+                user: '罗永浩',
+                title: '锤子手机',
+                content: '我要中杯'
+            }
+        },
+        //存放方法
+        methods: {
+
+        }
+    })
+</script>
+
+</html>

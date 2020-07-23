@@ -47,8 +47,7 @@ Router.post('/reg', async (req, res) => {
 
 });
 
-
-// 删除订单(购物车删除商品)
+//删除订单(购物车删除商品)
 
 Router.delete('/delete', async (req, res) => {
 
@@ -131,7 +130,6 @@ Router.put('/edit/:id', async (req, res) => {
 
 })
 
-
 // 查询订单列表(购物车多商铺数据查询)
 Router.get('/page', async (req, res) => {
 
@@ -181,7 +179,6 @@ Router.get('/page', async (req, res) => {
         res.send(inf);
     }
 });
-
 
 //查询某个订单
 Router.get('/getuser/:id', async (req, res) => {

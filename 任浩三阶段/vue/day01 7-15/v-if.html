@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>1、v-if="布尔值" 创建元素,删除元素</h2>
+        <input type="button" value="下拉" @click="show=!show">
+        <P v-if="show">下拉菜单内容</P>
+
+        <h2>2、v-show 显示和隐藏节点，节点还在</h2>
+        <input type="button" value="下拉菜单" @click="show2=!show2">
+        <p v-show="show2">哈哈哈</p>
+    </div>
+</body>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+
+    let vw = new Vue({
+
+        el: "#app",
+        //存放数据
+        data: {
+
+            show: false,
+            show2: false
+
+        }
+
+    })
+</script>
+
+</html>

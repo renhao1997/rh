@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块化</title>
+
+    <link rel="stylesheet" href="../bootstarp模板/style/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstarp模板/style/dashboard.css">
+</head>
+
+<body>
+    <div id="app">
+
+        <app></app>
+    </div>
+</body>
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<script src="../bootstarp模板/components/appHead.js"></script>
+
+<script src="../bootstarp模板/components/appLeft.js"></script>
+<script src="../bootstarp模板/components/appNews.js"></script>
+<script src="../bootstarp模板/components/appHobby.js"></script>
+<script src="../bootstarp模板/components/appRigth.js"></script>
+<script src="../bootstarp模板/components/appMain.js"></script>
+<script src="../bootstarp模板/components/app.js"></script>
+
+
+<!-- <script src="./bootstarp模板/components/appHead.js"></script>
+<script src="./bootstarp模板/components/appLeft.js"></script>
+<script src="./bootstarp模板/components/appRightTop.js"></script>
+<script src="./bootstarp模板/components/appRigthBttom.js"></script> -->
+
+<script>
+    // let app = {
+    //     template: `<div>111
+    // </div>`,
+
+    // }
+
+    new Vue({
+        el: '#app',
+        components: {//3、注册组件
+            // 'app': app
+            app //es6简写
+        }
+    });
+
+
+</script>
+
+</html>

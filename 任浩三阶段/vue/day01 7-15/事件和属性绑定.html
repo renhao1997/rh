@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>1、绑定属性 v-bind；简写成 :属性名</h2>
+        <p v-bind:title="title">{{msg}}</p>
+        <p :title="msg">{{title}}</p>
+        <!-- <img :src="url" alt=""> -->
+
+        <h2>2、绑定事件 v-on;简写成 @事件名</h2>
+
+        <input type="button" value="+1" @click="add()">
+        <input type="text" v-model="total">
+        <input type="button" value="-1" v-on:click="cut()">
+    </div>
+
+
+</body>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+
+    let vw = new Vue({
+
+
+        el: "#app",
+        //存放数据
+        data: {
+            msg: '今天周三,周六补课',
+            title: '跨域方案',
+            url: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=282743394,3589282771&fm=26&gp=0.jpg',
+            total: 1
+        },
+
+        //存放方法
+        methods: {
+
+            add() {
+                let num = this.total;
+
+                num++;
+                this.total = num;
+                if (num > 5) {
+                    this.total = 5;//最小是1
+                    alert('超过库存')
+                } else {
+                    this.total = num;
+                }
+            },
+            cut() {
+
+                let num = this.total;
+
+                num--;
+                this.total = num;
+                if (num < 1) {
+                    this.total = 1;//最小是1
+                    alert('至少买一份')
+                } else {
+                    this.total = num;
+                }
+
+            }
+        }
+
+
+    })
+</script>
+
+</html>
